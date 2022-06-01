@@ -159,3 +159,32 @@ plt.show()
 # Ejercicio 30
 print(data[data['Ubicación del caso'] == 'Fallecido'].groupby(
     'Edad').size().sort_values(ascending=False))
+
+# Ejercicio 31
+print((data.groupby('Ubicación del caso').size() /
+      data['ID de caso'].max()) * 100)
+
+# Ejercicio 32
+data.groupby('Ubicación del caso').size().sort_values().plot(kind='bar')
+plt.show()
+
+# Ejercicio 33
+data.groupby('Sexo').size().sort_values().plot(kind='bar')
+plt.show()
+
+# Ejercicio 34
+data.groupby('Tipo de contagio').size().sort_values().plot(kind='bar')
+plt.show()
+
+# Ejercicio 35
+# Contagiados
+data.groupby('Fecha de diagnóstico').size().sort_values().plot(kind='bar')
+plt.show()
+# Fallecidos
+data[data['Ubicación del caso'] == 'Fallecido'].groupby(
+    'Fecha de diagnóstico').size().sort_values().plot(kind='bar')
+plt.show()
+# Recuperados
+data[data['Recuperado'] == 'Recuperado'].groupby(
+    'Fecha de diagnóstico').size().sort_values().plot(kind='bar')
+plt.show()
