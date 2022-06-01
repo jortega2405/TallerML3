@@ -54,3 +54,108 @@ print(data[data['Ubicación del caso'] == 'Fallecido'].groupby(
 # Ejercicio 13
 print(data[data['Recuperado'] == 'Recuperado'].groupby(
     'Nombre departamento').size().sort_values(ascending=False).head(10))
+
+# Ejercicio 14
+print(data.groupby('Nombre municipio').size().sort_values(ascending=False).head(10))
+
+# Ejercicio 15
+print(data[data['Ubicación del caso'] == 'Fallecido'].groupby(
+    'Nombre municipio').size().sort_values(ascending=False).head(10)
+)
+
+# Ejercicio 16
+print(data[data['Recuperado'] == 'Recuperado'].groupby(
+    'Nombre municipio').size().sort_values(ascending=False).head(10))
+
+# Ejercicio 17
+print(data.groupby(['Nombre departamento', 'Nombre municipio']
+                   ).size().sort_values(ascending=False))
+
+# Ejercicio 18
+print(data.groupby(['Nombre departamento', 'Nombre municipio', 'Sexo']
+                   ).size().sort_values(ascending=False))
+
+# Ejercicio 19
+print(data.groupby(['Nombre departamento',
+      'Nombre municipio', 'Sexo']).Edad.mean())
+
+# Ejercicio 20
+print(data.groupby('Nombre del país').size().sort_values(ascending=False))
+
+# Ejercicio 21
+print(data.groupby('Fecha de diagnóstico').size().sort_values(ascending=False))
+
+# Ejercicio 22
+mortalidad = (
+    (len(data[data['Ubicación del caso'] == 'Fallecido'])) * 100) / (len(data))
+recuperacion = (
+    (len(data[data['Recuperado'] == 'Recuperado'])) * 100) / (len(data))
+
+print(f'Mortalidad: {mortalidad} \n Recuperacion: {recuperacion}')
+
+# Ejercicio 23
+print('Mortalidad:')
+print((data[data['Ubicación del caso'] == 'Fallecido'].groupby(
+    'Nombre departamento').size() / data['ID de caso'].max())*100)
+print('Recuperacion: ')
+print((data[data['Recuperado'] == 'Recuperado'].groupby(
+    'Nombre departamento').size() / data['ID de caso'].max())*100)
+
+# Ejercicio 24
+print('Mortalidad:')
+print((data[data['Ubicación del caso'] == 'Fallecido'].groupby(
+    'Nombre municipio').size() / data['ID de caso'].max())*100)
+print('Recuperacion: ')
+print((data[data['Recuperado'] == 'Recuperado'].groupby(
+    'Nombre municipio').size() / data['ID de caso'].max())*100)
+
+# Ejercicio 25
+print(data.groupby(
+    ['Nombre municipio', 'Ubicación del caso']).size().sort_values())
+
+# Ejercicio 26
+print(data.groupby(['Nombre municipio', 'Sexo']).Edad.mean())
+
+# Ejercicio 27
+# Contagiados
+plt.plot(data.groupby('Fecha de diagnóstico').size().sort_values())
+plt.show()
+# Fallecidos
+plt.plot(data[data['Ubicación del caso'] ==
+              'Fallecido'].groupby('Fecha de diagnóstico').size().sort_values())
+plt.show()
+# Recuperados
+plt.plot(data[data['Recuperado'] ==
+              'Recuperado'].groupby('Fecha de diagnóstico').size().sort_values())
+plt.show()
+
+# Ejercicio 28
+# Contagiados
+plt.plot(data.groupby('Nombre departamento').size(
+).sort_values(ascending=False).head(10))
+plt.show()
+# Fallecidos
+plt.plot(data[data['Ubicación del caso'] == 'Fallecido'].groupby(
+    'Nombre departamento').size().sort_values(ascending=False).head(10))
+plt.show()
+# Recuperados
+plt.plot(data[data['Recuperado'] == 'Recuperado'].groupby(
+    'Nombre departamento').size().sort_values(ascending=False).head(10))
+plt.show()
+
+# Ejercicio 29
+plt.plot(data.groupby('Nombre municipio').size().sort_values(
+    ascending=False).head(10))
+plt.show()
+# Fallecidos
+plt.plot(data[data['Ubicación del caso'] == 'Fallecido'].groupby(
+    'Nombre municipio').size().sort_values(ascending=False).head(10))
+plt.show()
+# Recuperados
+plt.plot(data[data['Recuperado'] == 'Recuperado'].groupby(
+    'Nombre municipio').size().sort_values(ascending=False).head(10))
+plt.show()
+
+# Ejercicio 30
+print(data[data['Ubicación del caso'] == 'Fallecido'].groupby(
+    'Edad').size().sort_values(ascending=False))
