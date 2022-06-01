@@ -27,3 +27,30 @@ print(len(data[data['Ubicación del caso'] == 'Casa']))
 
 # Ejercicio 5
 print(len(data[data['Recuperado'] == 'Recuperado']))
+
+# Ejercicio 6
+print(len(data[data['Ubicación del caso'] == 'Fallecido']))
+
+# Ejercicio 7
+print(data.groupby('Tipo de contagio').size().sort_values(ascending=False))
+
+# Ejercicio 8
+print(data['Nombre departamento'].unique().size)
+
+# Ejercicio 9
+print(data['Nombre departamento'].unique())
+
+# Ejercicio 10
+print(data.groupby('Ubicación del caso').size().sort_values(ascending=False))
+
+# Ejercicio 11
+print(data.groupby('Nombre departamento').size(
+).sort_values(ascending=False).head(10))
+
+# Ejercicio 12
+print(data[data['Ubicación del caso'] == 'Fallecido'].groupby(
+    'Nombre departamento').size().sort_values(ascending=False).head(10))
+
+# Ejercicio 13
+print(data[data['Recuperado'] == 'Recuperado'].groupby(
+    'Nombre departamento').size().sort_values(ascending=False).head(10))
